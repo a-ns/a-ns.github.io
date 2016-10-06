@@ -27348,7 +27348,7 @@
 	            ),
 	            _react2.default.createElement(
 	              'ul',
-	              { className: 'right hide-on-med-and-down' },
+	              { className: 'right' },
 	              _react2.default.createElement(
 	                'li',
 	                null,
