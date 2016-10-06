@@ -4,7 +4,7 @@ import {Link} from 'react-router'
 export default class Navbar extends React.Component {
   render () {
     return (
-      <div className='navbar-fixed'>
+      <header className='navbar-fixed'>
         <nav className='green accent-4'>
           <div className='nav-wrapper container'>
             <Link to='/' className='brand-logo left'>a-ns</Link>
@@ -13,7 +13,7 @@ export default class Navbar extends React.Component {
             </ul>
           </div>
         </nav>
-      </div>
+      </header>
     )
   }
 }

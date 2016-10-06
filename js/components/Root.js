@@ -1,14 +1,16 @@
 import React from 'react'
 import Header from './Header'
+import Footer from './Footer'
 export default class Root extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id='the-app'>
         <Header />
-        <div className='container'>
+        <main className='container the-site'>
           {this.props.children}
-        </div>
+        </main>
+        <Footer />
       </div>
     )
   }
