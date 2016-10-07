@@ -1,10 +1,10 @@
 import React from 'react'
-
+import Title from './Title'
 export default class About extends React.Component {
   render () {
     return (
       <div>
-        <h5>About Me</h5>
+        <Title title={'About Me'} />
           <p>My name is Kvothe, pronounced nearly the same as "quothe." Names are important as they tell you a great deal about a person. I've had more names than anyone has a right to. The Adem call me Maedre. Which, depending on how it's spoken, can mean The Flame, The Thunder, or The Broken Tree.</p>
           <p>"The Flame" is obvious if you've ever seen me. I have red hair, bright. If I had been born a couple of hundred years ago I would probably have been burned as a demon. I keep it short but it's unruly. When left to its own devices, it sticks up and makes me look as if I have been set afire.</p>
           <p>"The Thunder" I attribute to a strong baritone and a great deal of stage training at an early age.</p>
@@ -14,8 +14,6 @@ export default class About extends React.Component {
           <p>I have, of course, been called many other things. Most of them uncouth, although very few were unearned.</p>
           <p>I have stolen princesses back from sleeping barrow kings. I burned down the town of Trebon. I have spent the night with Felurian and left with both my sanity and my life. I was expelled from the University at a younger age than most people are allowed in. I tread paths by moonlight that others fear to speak of during day. I have talked to Gods, loved women, and written songs that make the minstrels weep.</p>
           <p>You may have heard of me.</p>
-      <br />
-      <a target='_blank' href='http://www.github.com/a-ns'>Github</a>
       </div>
     )
   }

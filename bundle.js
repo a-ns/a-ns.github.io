@@ -62,11 +62,11 @@
 
 	var _About2 = _interopRequireDefault(_About);
 
-	var _Root = __webpack_require__(236);
+	var _Root = __webpack_require__(237);
 
 	var _Root2 = _interopRequireDefault(_Root);
 
-	var _Home = __webpack_require__(239);
+	var _Home = __webpack_require__(240);
 
 	var _Home2 = _interopRequireDefault(_Home);
 
@@ -27143,6 +27143,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _Title = __webpack_require__(236);
+
+	var _Title2 = _interopRequireDefault(_Title);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -27166,11 +27170,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'h5',
-	          null,
-	          'About Me'
-	        ),
+	        _react2.default.createElement(_Title2.default, { title: 'About Me' }),
 	        _react2.default.createElement(
 	          'p',
 	          null,
@@ -27215,12 +27215,6 @@
 	          'p',
 	          null,
 	          'You may have heard of me.'
-	        ),
-	        _react2.default.createElement('br', null),
-	        _react2.default.createElement(
-	          'a',
-	          { target: '_blank', href: 'http://www.github.com/a-ns' },
-	          'Github'
 	        )
 	      );
 	    }
@@ -27247,11 +27241,65 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _Header = __webpack_require__(237);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Title = function (_React$Component) {
+	  _inherits(Title, _React$Component);
+
+	  function Title() {
+	    _classCallCheck(this, Title);
+
+	    return _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).apply(this, arguments));
+	  }
+
+	  _createClass(Title, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'h5',
+	          null,
+	          this.props.title
+	        ),
+	        _react2.default.createElement('hr', null)
+	      );
+	    }
+	  }]);
+
+	  return Title;
+	}(_react2.default.Component);
+
+	exports.default = Title;
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _Header = __webpack_require__(238);
 
 	var _Header2 = _interopRequireDefault(_Header);
 
-	var _Footer = __webpack_require__(238);
+	var _Footer = __webpack_require__(239);
 
 	var _Footer2 = _interopRequireDefault(_Footer);
 
@@ -27281,7 +27329,7 @@
 	        _react2.default.createElement(_Header2.default, null),
 	        _react2.default.createElement(
 	          'main',
-	          { className: 'container the-site' },
+	          { style: { 'padding': '15px' }, className: 'z-depth-1 container the-site' },
 	          this.props.children
 	        ),
 	        _react2.default.createElement(_Footer2.default, null)
@@ -27295,7 +27343,7 @@
 	exports.default = Root;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27371,7 +27419,7 @@
 	exports.default = Navbar;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27408,13 +27456,13 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'footer',
-	        { className: 'page-footer blue darken-1' },
+	        { className: 'z-depth-2 page-footer blue darken-1' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'row valign-wrapper' },
+	          { className: 'row valign-wrapper center' },
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col s12 m4 l2' },
+	            { className: 'col s1 m4 l2' },
 	            _react2.default.createElement(
 	              'p',
 	              null,
@@ -27423,7 +27471,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col s12 m4 l8' },
+	            { className: 'col s1 m4 l8' },
 	            _react2.default.createElement(
 	              'p',
 	              null,
@@ -27432,12 +27480,11 @@
 	          ),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'col s12 m4 l2 valign-wrapper' },
-	            _react2.default.createElement('img', { style: { height: '25.5px', width: '25.5px' }, src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: '', className: 'circle responsive-img' }),
+	            { className: 'col s1 m4 l2' },
 	            _react2.default.createElement(
 	              'a',
-	              { className: 'black-text text-lighten-3', href: 'http://www.github.com/a-ns' },
-	              'Github'
+	              { target: '_blank', className: 'black-text text-lighten-3', href: 'http://www.github.com/a-ns' },
+	              _react2.default.createElement('img', { style: { height: '25.5px', width: '25.5px' }, src: 'https://assets-cdn.github.com/images/modules/logos_page/GitHub-Mark.png', alt: '', className: 'circle responsive-img' })
 	            )
 	          )
 	        )
@@ -27451,13 +27498,13 @@
 	exports.default = Footer;
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	        value: true
 	});
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -27465,6 +27512,10 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _Title = __webpack_require__(236);
+
+	var _Title2 = _interopRequireDefault(_Title);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27475,80 +27526,75 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var Home = function (_React$Component) {
-	  _inherits(Home, _React$Component);
+	        _inherits(Home, _React$Component);
 
-	  function Home() {
-	    _classCallCheck(this, Home);
+	        function Home() {
+	                _classCallCheck(this, Home);
 
-	    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
-	  }
+	                return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+	        }
 
-	  _createClass(Home, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        null,
-	        _react2.default.createElement(
-	          'h4',
-	          null,
-	          'Home'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus, purus id facilisis rhoncus, sapien est auctor tellus, eget blandit justo lorem id leo. Phasellus in erat vehicula, cursus lacus a, imperdiet tellus. Suspendisse aliquet velit justo, eget porttitor mauris posuere vel. Praesent finibus eros at dolor placerat, vel pellentesque libero scelerisque. Cras in ex turpis. Phasellus tristique sed eros at ultrices. Etiam vitae nibh varius, tincidunt felis id, tincidunt erat. Nam bibendum posuere nunc, non eleifend risus iaculis nec.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'In hac habitasse platea dictumst. Cras vulputate suscipit risus, nec mollis velit cursus in. Proin interdum vulputate diam, sed viverra mauris feugiat ut. Maecenas tellus quam, maximus non ex eget, gravida rhoncus eros. Fusce nisl odio, viverra a fermentum vitae, finibus eu massa. Mauris suscipit elementum ligula quis egestas. Morbi hendrerit, diam a blandit tincidunt, turpis augue ornare justo, eu congue nunc nisi at diam. Nam egestas fringilla porttitor. Fusce lacinia purus ut ante viverra lobortis. Donec sit amet libero sit amet lorem fringilla consectetur et quis mi. Vivamus sed ornare purus.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Pellentesque fringilla bibendum elit, nec tempus tellus imperdiet vel. Nunc dictum risus id mi rutrum pretium. Phasellus finibus rutrum placerat. Suspendisse sapien eros, aliquet eu lacus ut, aliquam ornare quam. Morbi eget laoreet ipsum. Duis scelerisque posuere interdum. Sed eget leo nec ligula ultricies commodo. Vivamus fermentum orci non felis interdum blandit. Phasellus id diam et urna fermentum varius eu non mi. Sed semper augue ac convallis varius. Duis pellentesque gravida auctor. Sed dapibus mauris condimentum, feugiat lorem nec, vehicula ipsum. Maecenas commodo odio ut velit semper, sed bibendum nunc consequat. Sed imperdiet metus orci, et sagittis diam pellentesque a. Nulla facilisi.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Maecenas quis sagittis dui. Suspendisse consequat sagittis libero, vel finibus nisl lobortis luctus. Proin in ex ultricies, iaculis nulla ac, imperdiet lectus. Nullam quis metus vitae eros scelerisque convallis vel eget urna. Mauris at iaculis tortor. Nulla accumsan gravida neque vitae pulvinar. Suspendisse volutpat feugiat dui, quis luctus lacus mattis at. Fusce eget metus consequat, tincidunt augue pulvinar, blandit est.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Vestibulum interdum eu mi id luctus. Maecenas tempus non ligula ut condimentum. Aliquam vulputate augue eget quam posuere, at volutpat nisl accumsan. Pellentesque scelerisque tellus id diam dictum pharetra. Vivamus facilisis a tortor quis consequat. Etiam porta dui ultricies sem tincidunt posuere. Pellentesque varius massa nec augue consectetur, ut sodales nisi vestibulum. Pellentesque non justo ac massa maximus sollicitudin. Duis sollicitudin lorem eget condimentum porta. Donec sit amet aliquet tortor. Aenean vulputate faucibus ipsum nec rutrum. Proin vitae nulla lobortis, tempor dolor vitae, malesuada diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque purus diam, convallis a mattis vehicula, ultricies a eros.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus, purus id facilisis rhoncus, sapien est auctor tellus, eget blandit justo lorem id leo. Phasellus in erat vehicula, cursus lacus a, imperdiet tellus. Suspendisse aliquet velit justo, eget porttitor mauris posuere vel. Praesent finibus eros at dolor placerat, vel pellentesque libero scelerisque. Cras in ex turpis. Phasellus tristique sed eros at ultrices. Etiam vitae nibh varius, tincidunt felis id, tincidunt erat. Nam bibendum posuere nunc, non eleifend risus iaculis nec.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'In hac habitasse platea dictumst. Cras vulputate suscipit risus, nec mollis velit cursus in. Proin interdum vulputate diam, sed viverra mauris feugiat ut. Maecenas tellus quam, maximus non ex eget, gravida rhoncus eros. Fusce nisl odio, viverra a fermentum vitae, finibus eu massa. Mauris suscipit elementum ligula quis egestas. Morbi hendrerit, diam a blandit tincidunt, turpis augue ornare justo, eu congue nunc nisi at diam. Nam egestas fringilla porttitor. Fusce lacinia purus ut ante viverra lobortis. Donec sit amet libero sit amet lorem fringilla consectetur et quis mi. Vivamus sed ornare purus.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Pellentesque fringilla bibendum elit, nec tempus tellus imperdiet vel. Nunc dictum risus id mi rutrum pretium. Phasellus finibus rutrum placerat. Suspendisse sapien eros, aliquet eu lacus ut, aliquam ornare quam. Morbi eget laoreet ipsum. Duis scelerisque posuere interdum. Sed eget leo nec ligula ultricies commodo. Vivamus fermentum orci non felis interdum blandit. Phasellus id diam et urna fermentum varius eu non mi. Sed semper augue ac convallis varius. Duis pellentesque gravida auctor. Sed dapibus mauris condimentum, feugiat lorem nec, vehicula ipsum. Maecenas commodo odio ut velit semper, sed bibendum nunc consequat. Sed imperdiet metus orci, et sagittis diam pellentesque a. Nulla facilisi.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Maecenas quis sagittis dui. Suspendisse consequat sagittis libero, vel finibus nisl lobortis luctus. Proin in ex ultricies, iaculis nulla ac, imperdiet lectus. Nullam quis metus vitae eros scelerisque convallis vel eget urna. Mauris at iaculis tortor. Nulla accumsan gravida neque vitae pulvinar. Suspendisse volutpat feugiat dui, quis luctus lacus mattis at. Fusce eget metus consequat, tincidunt augue pulvinar, blandit est.'
-	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Vestibulum interdum eu mi id luctus. Maecenas tempus non ligula ut condimentum. Aliquam vulputate augue eget quam posuere, at volutpat nisl accumsan. Pellentesque scelerisque tellus id diam dictum pharetra. Vivamus facilisis a tortor quis consequat. Etiam porta dui ultricies sem tincidunt posuere. Pellentesque varius massa nec augue consectetur, ut sodales nisi vestibulum. Pellentesque non justo ac massa maximus sollicitudin. Duis sollicitudin lorem eget condimentum porta. Donec sit amet aliquet tortor. Aenean vulputate faucibus ipsum nec rutrum. Proin vitae nulla lobortis, tempor dolor vitae, malesuada diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque purus diam, convallis a mattis vehicula, ultricies a eros.'
-	        )
-	      );
-	    }
-	  }]);
+	        _createClass(Home, [{
+	                key: 'render',
+	                value: function render() {
+	                        return _react2.default.createElement(
+	                                'div',
+	                                null,
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus, purus id facilisis rhoncus, sapien est auctor tellus, eget blandit justo lorem id leo. Phasellus in erat vehicula, cursus lacus a, imperdiet tellus. Suspendisse aliquet velit justo, eget porttitor mauris posuere vel. Praesent finibus eros at dolor placerat, vel pellentesque libero scelerisque. Cras in ex turpis. Phasellus tristique sed eros at ultrices. Etiam vitae nibh varius, tincidunt felis id, tincidunt erat. Nam bibendum posuere nunc, non eleifend risus iaculis nec.'
+	                                ),
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'In hac habitasse platea dictumst. Cras vulputate suscipit risus, nec mollis velit cursus in. Proin interdum vulputate diam, sed viverra mauris feugiat ut. Maecenas tellus quam, maximus non ex eget, gravida rhoncus eros. Fusce nisl odio, viverra a fermentum vitae, finibus eu massa. Mauris suscipit elementum ligula quis egestas. Morbi hendrerit, diam a blandit tincidunt, turpis augue ornare justo, eu congue nunc nisi at diam. Nam egestas fringilla porttitor. Fusce lacinia purus ut ante viverra lobortis. Donec sit amet libero sit amet lorem fringilla consectetur et quis mi. Vivamus sed ornare purus.'
+	                                ),
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'Pellentesque fringilla bibendum elit, nec tempus tellus imperdiet vel. Nunc dictum risus id mi rutrum pretium. Phasellus finibus rutrum placerat. Suspendisse sapien eros, aliquet eu lacus ut, aliquam ornare quam. Morbi eget laoreet ipsum. Duis scelerisque posuere interdum. Sed eget leo nec ligula ultricies commodo. Vivamus fermentum orci non felis interdum blandit. Phasellus id diam et urna fermentum varius eu non mi. Sed semper augue ac convallis varius. Duis pellentesque gravida auctor. Sed dapibus mauris condimentum, feugiat lorem nec, vehicula ipsum. Maecenas commodo odio ut velit semper, sed bibendum nunc consequat. Sed imperdiet metus orci, et sagittis diam pellentesque a. Nulla facilisi.'
+	                                ),
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'Maecenas quis sagittis dui. Suspendisse consequat sagittis libero, vel finibus nisl lobortis luctus. Proin in ex ultricies, iaculis nulla ac, imperdiet lectus. Nullam quis metus vitae eros scelerisque convallis vel eget urna. Mauris at iaculis tortor. Nulla accumsan gravida neque vitae pulvinar. Suspendisse volutpat feugiat dui, quis luctus lacus mattis at. Fusce eget metus consequat, tincidunt augue pulvinar, blandit est.'
+	                                ),
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'Vestibulum interdum eu mi id luctus. Maecenas tempus non ligula ut condimentum. Aliquam vulputate augue eget quam posuere, at volutpat nisl accumsan. Pellentesque scelerisque tellus id diam dictum pharetra. Vivamus facilisis a tortor quis consequat. Etiam porta dui ultricies sem tincidunt posuere. Pellentesque varius massa nec augue consectetur, ut sodales nisi vestibulum. Pellentesque non justo ac massa maximus sollicitudin. Duis sollicitudin lorem eget condimentum porta. Donec sit amet aliquet tortor. Aenean vulputate faucibus ipsum nec rutrum. Proin vitae nulla lobortis, tempor dolor vitae, malesuada diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque purus diam, convallis a mattis vehicula, ultricies a eros.'
+	                                ),
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rhoncus, purus id facilisis rhoncus, sapien est auctor tellus, eget blandit justo lorem id leo. Phasellus in erat vehicula, cursus lacus a, imperdiet tellus. Suspendisse aliquet velit justo, eget porttitor mauris posuere vel. Praesent finibus eros at dolor placerat, vel pellentesque libero scelerisque. Cras in ex turpis. Phasellus tristique sed eros at ultrices. Etiam vitae nibh varius, tincidunt felis id, tincidunt erat. Nam bibendum posuere nunc, non eleifend risus iaculis nec.'
+	                                ),
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'In hac habitasse platea dictumst. Cras vulputate suscipit risus, nec mollis velit cursus in. Proin interdum vulputate diam, sed viverra mauris feugiat ut. Maecenas tellus quam, maximus non ex eget, gravida rhoncus eros. Fusce nisl odio, viverra a fermentum vitae, finibus eu massa. Mauris suscipit elementum ligula quis egestas. Morbi hendrerit, diam a blandit tincidunt, turpis augue ornare justo, eu congue nunc nisi at diam. Nam egestas fringilla porttitor. Fusce lacinia purus ut ante viverra lobortis. Donec sit amet libero sit amet lorem fringilla consectetur et quis mi. Vivamus sed ornare purus.'
+	                                ),
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'Pellentesque fringilla bibendum elit, nec tempus tellus imperdiet vel. Nunc dictum risus id mi rutrum pretium. Phasellus finibus rutrum placerat. Suspendisse sapien eros, aliquet eu lacus ut, aliquam ornare quam. Morbi eget laoreet ipsum. Duis scelerisque posuere interdum. Sed eget leo nec ligula ultricies commodo. Vivamus fermentum orci non felis interdum blandit. Phasellus id diam et urna fermentum varius eu non mi. Sed semper augue ac convallis varius. Duis pellentesque gravida auctor. Sed dapibus mauris condimentum, feugiat lorem nec, vehicula ipsum. Maecenas commodo odio ut velit semper, sed bibendum nunc consequat. Sed imperdiet metus orci, et sagittis diam pellentesque a. Nulla facilisi.'
+	                                ),
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'Maecenas quis sagittis dui. Suspendisse consequat sagittis libero, vel finibus nisl lobortis luctus. Proin in ex ultricies, iaculis nulla ac, imperdiet lectus. Nullam quis metus vitae eros scelerisque convallis vel eget urna. Mauris at iaculis tortor. Nulla accumsan gravida neque vitae pulvinar. Suspendisse volutpat feugiat dui, quis luctus lacus mattis at. Fusce eget metus consequat, tincidunt augue pulvinar, blandit est.'
+	                                ),
+	                                _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        'Vestibulum interdum eu mi id luctus. Maecenas tempus non ligula ut condimentum. Aliquam vulputate augue eget quam posuere, at volutpat nisl accumsan. Pellentesque scelerisque tellus id diam dictum pharetra. Vivamus facilisis a tortor quis consequat. Etiam porta dui ultricies sem tincidunt posuere. Pellentesque varius massa nec augue consectetur, ut sodales nisi vestibulum. Pellentesque non justo ac massa maximus sollicitudin. Duis sollicitudin lorem eget condimentum porta. Donec sit amet aliquet tortor. Aenean vulputate faucibus ipsum nec rutrum. Proin vitae nulla lobortis, tempor dolor vitae, malesuada diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque purus diam, convallis a mattis vehicula, ultricies a eros.'
+	                                )
+	                        );
+	                }
+	        }]);
 
-	  return Home;
+	        return Home;
 	}(_react2.default.Component);
 
 	exports.default = Home;
