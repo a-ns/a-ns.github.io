@@ -12,7 +12,8 @@ export default class TheNetwork extends React.Component {
 
 // create an array with edges
     var edges = new vis.DataSet([
-      {from: 1, to: 3},
+      {from: 1, to: 3, label: '1'},
+      {from: 3, to: 1, label: '5'},
       {from: 1, to: 2},
       {from: 2, to: 4},
       {from: 2, to: 5}
@@ -26,7 +27,27 @@ export default class TheNetwork extends React.Component {
       nodes: nodes,
       edges: edges
     }
-    var options = {}
+    var options = {
+      manipulation: {
+        enabled: true,
+        initiallyActive: false,
+        addNode: true,
+        addEdge: true,
+        editEdge: true,
+        deleteNode: true,
+        deleteEdge: true,
+        controlNodeStyle: {
+          // all node options are valid.
+        }
+      },
+      edges: {
+        arrows: {
+          to:     {enabled: true, scaleFactor: 1},
+          middle: {enabled: false, scaleFactor: 1},
+          from:   {enabled: false, scaleFactor: 1}
+        }
+      }
+    }
 
     // initialize your network!
     new vis.Network(container, data, options)
