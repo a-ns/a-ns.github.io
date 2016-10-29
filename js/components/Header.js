@@ -10,7 +10,7 @@ export default class Navbar extends React.Component {
             <Link to='/' className='brand-logo left'>a-ns</Link>
             <ul className='right'>
               <li><Link to='/about'>About</Link></li>
-              <li><Link to='/network'>Network</Link></li>
+              <li><Link to='/projects'>Projects</Link></li>
             </ul>
           </div>
         </nav>
