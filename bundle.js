@@ -21494,6 +21494,10 @@
 
 	var _Projects2 = _interopRequireDefault(_Projects);
 
+	var _Chat = __webpack_require__(244);
+
+	var _Chat2 = _interopRequireDefault(_Chat);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21522,7 +21526,8 @@
 	          { path: '/', component: _Root2.default },
 	          _react2.default.createElement(_reactRouter.IndexRoute, { component: _Home2.default }),
 	          _react2.default.createElement(_reactRouter.Route, { path: 'about', component: _About2.default }),
-	          _react2.default.createElement(_reactRouter.Route, { path: 'projects', component: _Projects2.default })
+	          _react2.default.createElement(_reactRouter.Route, { path: 'projects', component: _Projects2.default }),
+	          _react2.default.createElement(_reactRouter.Route, { path: 'chat', component: _Chat2.default })
 	        ),
 	        _react2.default.createElement(_reactRouter.Route, { path: '*', component: _NotFound2.default })
 	      );
@@ -27473,6 +27478,15 @@
 	                  { to: '/projects' },
 	                  'Projects'
 	                )
+	              ),
+	              _react2.default.createElement(
+	                'li',
+	                null,
+	                _react2.default.createElement(
+	                  _reactRouter.Link,
+	                  { to: '/chat' },
+	                  'Chat'
+	                )
 	              )
 	            )
 	          )
@@ -27864,6 +27878,128 @@
 	}(_react2.default.Component);
 
 	exports.default = Projects;
+
+/***/ },
+/* 244 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Chat = function (_React$Component) {
+	  _inherits(Chat, _React$Component);
+
+	  function Chat() {
+	    _classCallCheck(this, Chat);
+
+	    var _this = _possibleConstructorReturn(this, (Chat.__proto__ || Object.getPrototypeOf(Chat)).call(this));
+
+	    _this.state = {
+	      messages: [],
+	      currentMessage: ''
+	    };
+	    _this.formatMessage = _this.formatMessage.bind(_this);
+	    _this.submitMessage = _this.submitMessage.bind(_this);
+	    _this.updateMessage = _this.updateMessage.bind(_this);
+	    return _this;
+	  }
+
+	  _createClass(Chat, [{
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.setState({ messages: [{ date: '', text: 'Connecting to chat . . .' }] });
+	    }
+	  }, {
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+
+	      this.setState({ messages: [{ date: '', text: 'Connected to chat!' }] });
+	      firebase.database().ref('messages/').on('value', function (snapshot) {
+	        var currentMessages = snapshot.val();
+	        console.log(currentMessages);
+	        if (currentMessages != null) {
+	          _this2.setState({
+	            messages: currentMessages
+	          });
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'formatMessage',
+	    value: function formatMessage(message) {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'collection-item' },
+	        message.date,
+	        ' : ',
+	        message.text
+	      );
+	    }
+	  }, {
+	    key: 'submitMessage',
+	    value: function submitMessage(event) {
+	      console.log('Submitting message : ' + this.state.currentMessage);
+	      var nextMessage = {
+	        date: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
+	        text: this.state.currentMessage
+	      };
+
+	      this.setState({ currentMessage: '' });
+	      var date = new Date().toISOString().replace('.', '').replace(/:/g, '');
+	      firebase.database().ref('messages/' + this.state.messages.length).set(nextMessage);
+	    }
+	  }, {
+	    key: 'updateMessage',
+	    value: function updateMessage(event) {
+	      console.log('updateMessage: ' + event.target.value);
+	      this.setState({
+	        currentMessage: event.target.value
+	      });
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'collection' },
+	          this.state.messages.map(this.formatMessage)
+	        ),
+	        _react2.default.createElement('input', { onChange: this.updateMessage, type: 'text', placeholder: 'Message', value: this.state.currentMessage }),
+	        _react2.default.createElement('br', null),
+	        _react2.default.createElement(
+	          'button',
+	          { className: 'btn', onClick: this.submitMessage },
+	          'Submit Message'
+	        )
+	      );
+	    }
+	  }]);
+
+	  return Chat;
+	}(_react2.default.Component);
+
+	exports.default = Chat;
 
 /***/ }
 /******/ ]);

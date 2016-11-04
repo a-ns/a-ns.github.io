@@ -5,6 +5,7 @@ import Root from './components/Root.js'
 import Home from './components/Home'
 import NotFound from './components/NotFound'
 import Projects from './components/Projects'
+import Chat from './components/Chat'
 export default class MyRouter extends React.Component {
   render () {
     return (
@@ -14,6 +15,7 @@ export default class MyRouter extends React.Component {
           <IndexRoute component={Home}/>
           <Route path={'about'} component={About}/>
           <Route path={'projects'} component={Projects}/>
+          <Route path={'chat'} component={Chat} />
         </Route>
         <Route path={'*'} component={NotFound} />
       </Router>
