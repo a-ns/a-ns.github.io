@@ -27946,13 +27946,6 @@
 	          });
 	        }
 	      });
-	      document.getElementById('chatInput').onkeydown = function (e) {
-	        if (e.keyCode == 13) {
-	          {
-	            this.submitMessage;
-	          }
-	        }
-	      };
 	    }
 	  }, {
 	    key: 'formatMessage',

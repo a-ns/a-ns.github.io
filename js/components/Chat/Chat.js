@@ -27,11 +27,6 @@ export default class Chat extends React.Component {
         })
       }
     })
-  document.getElementById('chatInput').onkeydown = function(e){
-   if(e.keyCode == 13){
-      {this.submitMessage}
-      }
-    }
   }
 
   formatMessage (message) {
