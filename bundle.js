@@ -27948,7 +27948,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'collection-item' },
-	        message.date,
+	        message.date.toISOString().replace(/T/, ' ').replace(/\..+/, ''),
 	        ' : ',
 	        message.text
 	      );
@@ -27958,12 +27958,11 @@
 	    value: function submitMessage(event) {
 	      console.log('Submitting message : ' + this.state.currentMessage);
 	      var nextMessage = {
-	        date: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
+	        date: new Date(),
 	        text: this.state.currentMessage
 	      };
 
 	      this.setState({ currentMessage: '' });
-	      var date = new Date().toISOString().replace('.', '').replace(/:/g, '');
 	      firebase.database().ref('messages/' + this.state.messages.length).set(nextMessage);
 	    }
 	  }, {

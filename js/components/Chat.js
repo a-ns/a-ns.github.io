@@ -29,20 +29,18 @@ export default class Chat extends React.Component {
     })
   }
 
-
   formatMessage (message) {
-    return <div className='collection-item'>{message.date} : {message.text}</div>
+    return <div className='collection-item'>{message.date.toISOString().replace(/T/, ' ').replace(/\..+/, '')} : {message.text}</div>
   }
 
   submitMessage (event) {
     console.log('Submitting message : ' + this.state.currentMessage)
     const nextMessage = {
-      date: new Date().toISOString().replace(/T/, ' ').replace(/\..+/, ''),
+      date: new Date(),
       text: this.state.currentMessage
     }
 
     this.setState({currentMessage: ''})
-    const date = new Date().toISOString().replace('.', '').replace(/:/g, '')
     firebase.database().ref('messages/' + this.state.messages.length).set(nextMessage)
 
   }
@@ -57,7 +55,6 @@ export default class Chat extends React.Component {
   render () {
     return (
       <div>
-
         <div className='collection'>
           {this.state.messages.map(this.formatMessage)}
         </div>
