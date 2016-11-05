@@ -1,4 +1,5 @@
 import React from 'react'
+import Title from './Title'
 
 export default class Projects extends React.Component {
   constructor () {
@@ -40,6 +41,7 @@ export default class Projects extends React.Component {
   render () {
     return (
       <div id = 'projects'>
+        <Title title='Projects' ></Title>
         {this.state.projects.map(this.formatProject)}
       </div>
     )

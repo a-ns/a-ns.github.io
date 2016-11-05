@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import MyRouter from './Router'
+import Router from './Router'
 
 class App extends React.Component {
   render () {
     return (
-      <MyRouter />
+      <Router />
     )
   }
 }
