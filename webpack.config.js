@@ -2,6 +2,7 @@ module.exports = {
   entry: './js/Main.js',
   output: { path: __dirname, filename: 'bundle.js'},
   devServer: {
+    host: '0.0.0.0',
     inline: true,
     port: 8888
   },
