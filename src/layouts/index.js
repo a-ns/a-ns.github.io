@@ -14,41 +14,27 @@ class Header extends React.Component {
   handleLinkClick = (e, { name }) => this.setState({ activeItem: name });
   render() {
     const activeItem = this.state.activeItem;
+    const leftItems = ["home", "profile", "projects"];
     return (
-      <Menu>
+      <Menu color="blue" inverted>
         <Menu.Menu position="left">
-          <Link to="/">
-            <Menu.Item
-              as="div"
-              name="Home"
-              onClick={this.handleLinkClick}
-              active={activeItem === "Home"}
-            >
-              Home
-            </Menu.Item>
-          </Link>
-
-          <Link to="/profile">
-            <Menu.Item
-              as="div"
-              name="Profile"
-              onClick={this.handleLinkClick}
-              active={activeItem === "Profile"}
-            >
-              Profile
-            </Menu.Item>
-          </Link>
-
-          <Link to="/projects">
-            <Menu.Item
-              as="div"
-              name="Projects"
-              onClick={this.handleLinkClick}
-              active={activeItem === "Projects"}
-            >
-              Projects
-            </Menu.Item>
-          </Link>
+          {leftItems.map(item => {
+            let toLink = "/";
+            if (item !== "home") toLink += item;
+            return (
+              <Link to={toLink} key={item}>
+                <Menu.Item
+                  as="div"
+                  key={item}
+                  name={item}
+                  onClick={this.handleLinkClick}
+                  active={activeItem === item}
+                >
+                  {item}
+                </Menu.Item>
+              </Link>
+            );
+          })}
         </Menu.Menu>
 
         <Menu.Menu position="right">
