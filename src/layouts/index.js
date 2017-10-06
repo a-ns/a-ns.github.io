@@ -19,6 +19,7 @@ class Header extends React.Component {
         <Menu.Menu position="left">
           <Link to="/">
             <Menu.Item
+              as="div"
               name="Home"
               onClick={this.handleLinkClick}
               active={activeItem === "Home"}
@@ -26,8 +27,10 @@ class Header extends React.Component {
               Home
             </Menu.Item>
           </Link>
+
           <Link to="/profile">
             <Menu.Item
+              as="div"
               name="Profile"
               onClick={this.handleLinkClick}
               active={activeItem === "Profile"}
@@ -38,6 +41,7 @@ class Header extends React.Component {
 
           <Link to="/projects">
             <Menu.Item
+              as="div"
               name="Projects"
               onClick={this.handleLinkClick}
               active={activeItem === "Projects"}
@@ -46,9 +50,10 @@ class Header extends React.Component {
             </Menu.Item>
           </Link>
         </Menu.Menu>
+
         <Menu.Menu position="right">
           <a href="http://github.com/a-ns" target="_blank">
-            <Menu.Item name="Github">
+            <Menu.Item as="div" name="Github">
               <FaGithub />
             </Menu.Item>
           </a>
@@ -56,7 +61,7 @@ class Header extends React.Component {
             href="http://linkedin.com/in/alex-lindemann-0b11b1141"
             target="_blank"
           >
-            <Menu.Item name="LinkedIn">
+            <Menu.Item as="div" name="LinkedIn">
               <FaLinkedin />
             </Menu.Item>
           </a>
